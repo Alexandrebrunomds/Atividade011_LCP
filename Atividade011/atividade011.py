@@ -54,8 +54,8 @@ class Player(pygame.sprite.Sprite):
                     self.image = pygame.transform.flip(self.sprites_jump[int(self.current_sprite)], True, False)
         
 
-                
-    # Função para detectar se o player está no ar
+    # Function to detect if the player is on air
+    
     def falling(self):
         self.pos_y += 6
             
@@ -68,7 +68,6 @@ class Player(pygame.sprite.Sprite):
         
     def move(self, flip):
         if not self.jumping:
-            # Detecta se o player virou para assim virar o seu sprite
             if flip:
                 self.vel_x = -3
                 self.flip = True
@@ -80,7 +79,8 @@ class Player(pygame.sprite.Sprite):
 pygame.init()
 clock = pygame.time.Clock()
 
-# Boleano para mostrar que a animação está rodando 
+# Boolean to show that the animation is running
+
 anim = False
 pos = 0
 jump = False
@@ -122,7 +122,7 @@ while True:
                 anim = False
                 player.vel_x = 0
     
-    # Evita que o player fique no ar           
+    # Prevents the player from being in the air           
                    
     player.pos_x += player.vel_x
 
@@ -142,10 +142,8 @@ while True:
     elif player.pos_y > 200:
         player.pos_y = 200
     
-    
     screen.fill((0, 0, 0))
 
-    
     if not anim and player.current_sprite != 0:
         player.current_sprite = 0
         if player.flip:
